@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
   <meta charset="UTF-8">
-  <title>More Than Code - @白羊座小葛</title>
-  <link rel="stylesheet" href="fonts/font.css" />
-  <link rel="stylesheet" href="style.css" />
+  <title>test</title>
+  <link href="style.css" rel="stylesheet">
+  <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
-  <div class="slogan">
+<div id="main" class="hide" style="display: none;">
+  <div class="slogan center" id="slogan">
     <div class="mt">
-      <div class="more">MORE</div>
-      <div class="than">THAN</div>
+      <span>M</span><span>O</span><span >R</span><span>E</span><span>T</span><span >H</span><span >A</span><span>N</span>
     </div>
-    <div class="code">CODE</div>
-    <div class="clock init" id="clock">
-      <div class="hour" id="hour"></div>
-      <div class="minute" id="minute"></div>
-      <div class="second" id="second"></div>
+    <div class="code">
+      <span class="code-c">c</span><span class="code-o">o</span><span class="code-d">d</span><span class="code-e">e</span>
+      <div class="clock init" id="clock">
+        <div class="hour" id="hour"></div>
+        <div class="minute" id="minute"></div>
+        <div class="second" id="second"></div>
+      </div>
     </div>
   </div>
-
-  <div class="nav">
-    <div class="me">
-      <a href="http://weibo.com/abeyuhang">Yuhang GE</a>
-    </div>
-    <div class="title">
+  <div class="me" id="me">
+    <p class="name">
+      <a>Yuhang GE <span style="color: #e21664; font-size: 20px;">♥</span> Jing WANG</a>
+    </p>
+    <p class="title">
       <a href>Web Developer</a><a href>Cooker</a><a href>Guitar Lover</a>
-    </div>
+    </p>
   </div>
-
-  <script type="text/javascript" src="app.js"></script>
-  <script>
-    setTimeout(initClock, 800);
-  </script>
+</div>
 </body>
 </html>

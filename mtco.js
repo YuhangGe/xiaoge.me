@@ -161,15 +161,15 @@
     setTimeout(function() {
       initClock();
       $$main.rmC('hide');
-      setTimeout(function() {
-        $('#song-line-a').text(lrc[0]);
-        $('#song-line-b').text(lrc[1]);
-        $('#song-author-name').text(lrc[2]);
-        $$me.rmC('center');
-        $$slogan.rmC('center');
-        $$song.rmC('hide');
-        $$author.rmC('hide');
-      }, 1500);
+      //setTimeout(function() {
+      //  $('#song-line-a').text(lrc[0]);
+      //  $('#song-line-b').text(lrc[1]);
+      //  $('#song-author-name').text(lrc[2]);
+      //  $$me.rmC('center');
+      //  $$slogan.rmC('center');
+      //  $$song.rmC('hide');
+      //  $$author.rmC('hide');
+      //}, 1500);
 
     }, delay < 80 ? 80 : 10);
 
