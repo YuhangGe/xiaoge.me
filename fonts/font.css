@@ -7,3 +7,8 @@
   font-family: sourcesan;
   src: url(SourceSansPro-ExtraLight.ttf);
 }
+
+@font-face {
+  font-family: mtco;
+  src: url(mtco.ttf);
+}

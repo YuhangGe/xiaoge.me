@@ -1,0 +1,124 @@
+@import "fonts/font.css";
+
+* {
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #000;
+}
+
+@main-width: 600px;
+@main-height: @main-width * 0.618; //黄金分割比例
+
+#main {
+  transition: opacity 2s ease;
+  opacity: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -@main-width / 2;
+  margin-top: -@main-height / 2;
+  width: @main-width;
+  height: @main-height;
+  &.hide {
+    opacity: 0;
+  }
+}
+
+.slogan {
+  font-family: mtco, Arial, '宋体', serif;
+
+  .mt {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .more {
+    margin-right: 30px;
+  }
+  .than {
+    &.than-t {
+      margin-left: 26px;
+    }
+    margin-right: 30px;
+  }
+  .code {
+    position: relative;
+    left: -28px;
+    .code-c {
+      font-size: 140px;
+    }
+    .code-o {
+      font-size: 146px;
+    }
+    .code-d {
+      font-size: 148px;
+    }
+    .code-e {
+      font-size: 141px;
+    }
+  }
+}
+
+.me {
+  font-family: Arial, serif;
+  font-size: 16px;
+  position: absolute;
+  left: 2px;
+  bottom: 0;
+  border-left: 2px solid white;
+  padding-top: 2px;
+  letter-spacing: 0.05em;
+  .title {
+    margin-top: 6px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    padding: 0 8px;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:not(:first-child) {
+      border-left: 2px solid white;
+    }
+  }
+}
+
+.author {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  font: italic 23px KaiTi;
+}
+
+.song {
+  font: 30px KaiTi;
+  position: absolute;
+  width: 80px;
+  height: @main-height - 30px;
+  top: -3px;
+  right: 0;
+
+  .line {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: @main-height - 90px;
+    word-break: break-all;
+    overflow: hidden;
+
+    &.line-a {
+      right: 0;
+    }
+
+    &.line-b {
+      right: 50px;
+    }
+  }
+}
