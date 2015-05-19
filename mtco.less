@@ -31,10 +31,16 @@ html, body {
 
 .slogan {
   font-family: mtco, Arial, '宋体', serif;
+  position: relative;
+  left: 0;
+  transition: left 1s ease;
+  &.center {
+    left: (@main-width - 390px) / 2;
+  }
 
   .mt {
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
   .more {
     margin-right: 30px;
@@ -60,6 +66,59 @@ html, body {
     .code-e {
       font-size: 141px;
     }
+
+    >.clock {
+      position: absolute;
+      background: white;
+      width: 114px;
+      height: 114px;
+      border-radius: 57px;
+      left: 114px;
+      top: 0;
+
+      >div {
+        position: absolute;
+        left: 50%;
+        top: ~'calc(50% - 1px)';
+        transform-origin: 0 1px;
+        -webkit-transform-origin: 0 1px;
+        background: black;
+      }
+
+      &.init>div {
+        transition: transform 1s linear;
+        -webkit-transition: -webkit-transform 1s linear;
+      }
+
+      >.hour {
+        width: 20%;
+        height: 2px;
+        border-radius: 1px;
+        //background: #6666ff;
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        z-index: 9997;
+      }
+      >.minute {
+        width: 32%;
+        height: 2px;
+        border-radius: 1px;
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        //background:#ff9900;
+        z-index: 9998;
+      }
+      >.second {
+        width: 45%;
+        height: 1px;
+        border-radius: 1px;
+        //background: #82070a;
+        background: black;
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        z-index: 9999;
+      }
+    }
   }
 }
 
@@ -72,6 +131,28 @@ html, body {
   border-left: 2px solid white;
   padding-top: 2px;
   letter-spacing: 0.05em;
+  transition: border-left-color 2s ease;
+
+  .name {
+    position: relative;
+    left: 0;
+    transition: left 1s ease;
+  }
+  .title {
+    position: relative;
+    left: 0;
+    transition: left 1s ease;
+  }
+  &.center {
+    border-left-color: black;
+    .name {
+      left: (@main-width - 95px) / 2;
+    }
+    .title {
+      left: (@main-width - 312px) / 2;
+    }
+  }
+
   .title {
     margin-top: 6px;
   }
@@ -95,6 +176,12 @@ html, body {
   right: 0;
   bottom: -1px;
   font: italic 23px KaiTi;
+  transition: opacity 2s ease;
+  transition-delay: 0.3s;
+  opacity: 1;
+  &.hide {
+    opacity: 0;
+  }
 }
 
 .song {
@@ -102,9 +189,14 @@ html, body {
   position: absolute;
   width: 80px;
   height: @main-height - 30px;
-  top: -3px;
+  top: -6px;
   right: 0;
-
+  &.hide {
+    .line {
+      opacity: 0;
+      height: 0;
+    }
+  }
   .line {
     position: absolute;
     top: 0;
@@ -112,6 +204,8 @@ html, body {
     height: @main-height - 90px;
     word-break: break-all;
     overflow: hidden;
+    transition: opacity 2.5s ease, height 1s ease;
+    opacity: 1;
 
     &.line-a {
       right: 0;

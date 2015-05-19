@@ -99,12 +99,34 @@
   }
 
   var $$body, $$main;
+  var $$song, $$author;
+  var $$me, $$slogan;
+  var lrc = '原来我非不快乐,只我一人未发觉,再见二丁目'.split(',');
+
+  (function loadLRC() {
+    var http = new XMLHttpRequest();
+    http.open('GET', 'lrc/' + Math.floor(Math.random() * MTCO.lrcCount) + '.txt', true);
+    http.onreadystatechange = function() {
+      if (http.readyState === 4 && http.status === 200) {
+        //log(http.responseText);
+        //log(http.responseText.split(/\s+/));
+        var lrcs = http.responseText.split(/\s+/);
+        if (lrcs.length === 3) {
+          lrc = lrcs;
+        }
+      }
+    };
+    http.send();
+  })();
 
   $load(function checkMTCOFont() {
     var ele1 = $ce('span');
     var ele2 = $ce('span');
     var txt = 'MORETHANcode';
-
+    $$song = $('#song');
+    $$author = $('#author');
+    $$me = $('#me');
+    $$slogan = $('#slogan');
     $$body = $(document.body);
     $$main = $('#main');
 
@@ -134,12 +156,51 @@
   });
 
   function afterLoad(delay) {
-    $$main
-      .css('display', '');
+    $$main.css('display', '');
 
     setTimeout(function() {
+      initClock();
       $$main.rmC('hide');
+      setTimeout(function() {
+        $('#song-line-a').text(lrc[0]);
+        $('#song-line-b').text(lrc[1]);
+        $('#song-author-name').text(lrc[2]);
+        $$me.rmC('center');
+        $$slogan.rmC('center');
+        $$song.rmC('hide');
+        $$author.rmC('hide');
+      }, 1500);
+
     }, delay < 80 ? 80 : 10);
+
+  }
+
+  function initClock() {
+    var $h = $('#hour');
+    var $m = $('#minute');
+    var $s = $('#second');
+
+    function run() {
+      var now = new Date();
+      var h = now.getHours();
+      var m = now.getMinutes();
+      var s = now.getSeconds();
+      rotate($h, (h >= 12 ? h - 12 : h) / 12);
+      rotate($m, m / 60);
+      rotate($s, s / 60);
+    }
+
+    function rotate($ele, deg) {
+      $ele.css('transform', 'rotate(' + (deg * 360 - 90) + 'deg)');
+      $ele.css('webkitTransform', 'rotate(' + (deg * 360 - 90) + 'deg)');
+    }
+
+    run();
+
+    setTimeout(function() {
+      $('#clock').rmC('init');
+      setInterval(run, 1000);
+    }, 1000);
 
   }
 })();

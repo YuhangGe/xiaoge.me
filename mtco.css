@@ -26,10 +26,16 @@ body {
 }
 .slogan {
   font-family: mtco, Arial, '宋体', serif;
+  position: relative;
+  left: 0;
+  transition: left 1s ease;
+}
+.slogan.center {
+  left: 105px;
 }
 .slogan .mt {
   font-size: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .slogan .more {
   margin-right: 30px;
@@ -56,6 +62,52 @@ body {
 .slogan .code .code-e {
   font-size: 141px;
 }
+.slogan .code > .clock {
+  position: absolute;
+  background: white;
+  width: 114px;
+  height: 114px;
+  border-radius: 57px;
+  left: 114px;
+  top: 0;
+}
+.slogan .code > .clock > div {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1px);
+  transform-origin: 0 1px;
+  -webkit-transform-origin: 0 1px;
+  background: black;
+}
+.slogan .code > .clock.init > div {
+  transition: transform 1s linear;
+  -webkit-transition: -webkit-transform 1s linear;
+}
+.slogan .code > .clock > .hour {
+  width: 20%;
+  height: 2px;
+  border-radius: 1px;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  z-index: 9997;
+}
+.slogan .code > .clock > .minute {
+  width: 32%;
+  height: 2px;
+  border-radius: 1px;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  z-index: 9998;
+}
+.slogan .code > .clock > .second {
+  width: 45%;
+  height: 1px;
+  border-radius: 1px;
+  background: black;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  z-index: 9999;
+}
 .me {
   font-family: Arial, serif;
   font-size: 16px;
@@ -65,6 +117,26 @@ body {
   border-left: 2px solid white;
   padding-top: 2px;
   letter-spacing: 0.05em;
+  transition: border-left-color 2s ease;
+}
+.me .name {
+  position: relative;
+  left: 0;
+  transition: left 1s ease;
+}
+.me .title {
+  position: relative;
+  left: 0;
+  transition: left 1s ease;
+}
+.me.center {
+  border-left-color: black;
+}
+.me.center .name {
+  left: 252.5px;
+}
+.me.center .title {
+  left: 144px;
 }
 .me .title {
   margin-top: 6px;
@@ -86,14 +158,24 @@ body {
   right: 0;
   bottom: -1px;
   font: italic 23px KaiTi;
+  transition: opacity 2s ease;
+  transition-delay: 0.3s;
+  opacity: 1;
+}
+.author.hide {
+  opacity: 0;
 }
 .song {
   font: 30px KaiTi;
   position: absolute;
   width: 80px;
   height: 340.8px;
-  top: -3px;
+  top: -6px;
   right: 0;
+}
+.song.hide .line {
+  opacity: 0;
+  height: 0;
 }
 .song .line {
   position: absolute;
@@ -102,6 +184,8 @@ body {
   height: 280.8px;
   word-break: break-all;
   overflow: hidden;
+  transition: opacity 2.5s ease, height 1s ease;
+  opacity: 1;
 }
 .song .line.line-a {
   right: 0;
