@@ -1,4 +1,7 @@
-@import "fonts/font.css";
+@font-face {
+  font-family: mtco;
+  src: url(fonts/mtco.ttf);
+}
 
 * {
   color: white;
@@ -6,18 +9,22 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  font-size: 5vmin;
+}
 html, body {
   height: 100%;
   width: 100%;
   background: #000;
 }
 
-@main-width: 600px;
+@main-width: 90vmin;
 @main-height: @main-width * 0.618; //黄金分割比例
+@mt-margin: 5.35vmin;
+@second-length: 46%;
 
 #main {
   transition: opacity 2s ease;
-  padding: 12px;
   opacity: 1;
   position: absolute;
   left: 50%;
@@ -26,23 +33,24 @@ html, body {
   margin-top: -@main-height / 2;
   width: @main-width;
   height: @main-height;
+  overflow: hidden;
   &.hide {
     opacity: 0;
   }
 }
 
 .slogan {
-  font-family: mtco, Arial, '宋体', serif;
+  font-family: mtco, Arial, serif;
   position: relative;
   text-align: center;
 
   .mt {
-    font-size: 30px;
-    margin-bottom: 30px;
+    font-size: 0.9rem;
+    margin-bottom: 4.5vmin;
     &>span {
-      margin-right: 30px;
+      margin-right: @mt-margin;
       &:nth-child(4) {
-        margin-right: 60px;
+        margin-right: @mt-margin * 2;
       }
       &:last-child {
         margin: 0;
@@ -53,28 +61,30 @@ html, body {
   .code {
     position: relative;
     .code-c {
-      font-size: 140px;
+      font-size: 4.6rem;
     }
     .code-o {
-      font-size: 146px;
+      font-size: 4.8rem;
+      position: relative;
     }
     .code-d {
-      font-size: 148px;
+      font-size: 4.7rem;
     }
     .code-e {
-      font-size: 141px;
+      font-size: 4.5rem;
     }
 
-    >.clock {
+    .clock {
       position: absolute;
+      //background: rgba(0,0,255, 0.3);
       background: white;
-      width: 110px;
-      height: 110px;
-      border-radius: 55px;
-      left: 177px;
-      top: 4.5px;
+      width: 18.5vmin;
+      height: 18.5vmin;
+      border-radius: 9.25vmin;
+      left: 0.95vmin;
+      top: 0.2vmin;
 
-      >div {
+      >span {
         position: absolute;
         left: 50%;
         top: ~'calc(50% - 1px)';
@@ -83,13 +93,13 @@ html, body {
         background: black;
       }
 
-      &.init>div {
+      &.init>span {
         transition: transform 1s linear;
         -webkit-transition: -webkit-transform 1s linear;
       }
 
       >.hour {
-        width: 20%;
+        width: @second-length * 0.618 * 0.618;
         height: 2px;
         border-radius: 1px;
         background: #5b097b;
@@ -98,7 +108,7 @@ html, body {
         z-index: 9997;
       }
       >.minute {
-        width: 32%;
+        width: @second-length * 0.618;
         height: 2px;
         border-radius: 1px;
         transform: rotate(-90deg);
@@ -107,7 +117,7 @@ html, body {
         z-index: 9998;
       }
       >.second {
-        width: 45%;
+        width: @second-length;
         height: 1px;
         border-radius: 1px;
         background: #e21664;
@@ -121,16 +131,20 @@ html, body {
 
 .me {
   font-family: Arial, serif;
-  font-size: 16px;
+  font-size: 0.5rem;
   letter-spacing: 0.05em;
   text-align: center;
   position: absolute;
   width: 100%;
-  bottom: 12px;
+  bottom: 0;
   left: 0;
 
+  .heart {
+    color: #e21664;
+    font-size: 0.7rem;
+  }
   .title {
-    margin-top: 6px;
+    margin-top: 1vmin;
   }
 
   a {
@@ -141,11 +155,11 @@ html, body {
       text-decoration: underline;
     }
     &:not(:first-child) {
-      padding-left: 8px;
-      border-left: 2px solid white;
+      padding-left: 1.1vmin;
+      border-left: 0.3vmin solid white;
     }
     &:not(last-child) {
-      padding-right: 8px;
+      padding-right: 1.1vmin;
     }
   }
 }
