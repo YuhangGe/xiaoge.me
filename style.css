@@ -44,6 +44,13 @@ body {
 .slogan .mt > span {
   margin-right: 5.35vmin;
 }
+.slogan .mt > span:nth-child(1),
+.slogan .mt > span:nth-child(2),
+.slogan .mt > span:nth-child(3),
+.slogan .mt > span:nth-child(4) {
+  position: relative;
+  left: 1.3vmin;
+}
 .slogan .mt > span:nth-child(4) {
   margin-right: 10.7vmin;
 }
