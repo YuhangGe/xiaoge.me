@@ -4,6 +4,10 @@ body {
   height: 100%;
   background: black;
   background-color:#fff;
+  font-family: 'PT Sans', sans-serif;
+
+}
+p{
   color: #9A9A9A;
 }
 .mian{
@@ -12,7 +16,7 @@ body {
   text-align: center;
 }
 .logo{  
-  padding-top: 80px;
+  padding-top: 60px;
 }
 .info{
   padding-top: 50px;
@@ -21,8 +25,11 @@ body {
   padding-top: 80px;
 }
 .nav{
-  padding-top: 20px;
 }
 .nav a{
-  outline: none;
+  color: #9A9A9A;
+  text-decoration: none;
+}
+.nav a:hover{
+  color: #63BE92;
 }
