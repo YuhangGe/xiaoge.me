@@ -11,7 +11,7 @@ p{
   color: #9A9A9A;
 }
 .mian{
-  width: 960px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 }
@@ -33,3 +33,27 @@ p{
 .nav a:hover{
   color: #63BE92;
 }
+@media only screen and (min-width:1024px) {
+  .logo img{  
+    width: 10%;
+  }
+  .info img{
+  width: 25%;
+}
+} 
+@media only screen and (min-width:500px) and (max-width: 1024px){
+  .logo img{  
+    width: 20%;
+  }
+  .info img{
+  width: 40%;
+}
+} 
+@media only screen and (max-width: 375px){
+  .logo img{  
+    width: 50%;
+  }
+  .info img{
+  width:70%;
+}
+} 
